@@ -1,3 +1,4 @@
+package Mastery;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

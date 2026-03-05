@@ -1,3 +1,4 @@
+package Mastery;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -69,7 +70,7 @@ public class BreakAPlate {
 		panel.add(prize);
 		
 		ImageIcon allBroke = new ImageIcon("../Chapter10/src/plates_all_broken.jpg");
-		ImageIcon twoBroke = new ImageIcon("../Chapter10/src/plates_two_broken.gif");
+		ImageIcon twoBroke = new ImageIcon("../Chapter10/src/plates_two_broken.jpg");
 		ImageIcon noBroke = new ImageIcon("../Chapter10/src/plates.jpg");
 		ImageIcon sticker = new ImageIcon("../Chapter10/src/sticker.jpg");
 		ImageIcon tiger = new ImageIcon("../Chapter10/src/tiger_plush.jpg");

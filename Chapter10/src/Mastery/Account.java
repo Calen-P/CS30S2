@@ -1,3 +1,4 @@
+package Mastery;
 import java.text.NumberFormat;
 
 public class Account 
@@ -70,7 +71,7 @@ public class Account
 	 */
 	public boolean withdrawal(double amt) {
 	 	if (amt <= balance) {
-	 		balance -= amt;
+	 		balance -= (amt / 2);
 	 		return true;
 	 	} else {
 	 		return false;

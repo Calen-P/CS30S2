@@ -1,3 +1,4 @@
+package Mastery;
 import java.util.ArrayList;
 
 public class Bank 
@@ -108,9 +109,5 @@ public class Bank
 	 	} else {
 	 		return("Account does not exist.");
 	 	}
-	}
-	
-	public static boolean numCheck(String str) {
-	    return str.matches(".*\\d.*"); 
 	}
 }

@@ -1,3 +1,4 @@
+package Mastery;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -96,7 +97,7 @@ public class LocalBank {
 		text3.setBounds(21, 111, 150, 22);
 		jPanel.add(text3);
 		
-		JLabel text4 = new JLabel("Amount of Deposit/Withdrawal:");
+		JLabel text4 = new JLabel("Amount of /Withdrawal:");
 		text4.setForeground(Color.BLACK);
 		text4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		text4.setBounds(21, 163, 387, 22);
@@ -185,19 +186,24 @@ public class LocalBank {
 
 			public void actionPerformed(ActionEvent e)
 			{
+				boolean check;
 				
 				String lName = lastName.getText();
 				String accID = accNum.getText();
 				String fName = firstName.getText();
+				String sBalance = begBalance.getText();
+				String sAmount = moneyAmount.getText();
 				
 				if (select.getSelectedItem().equals("Add an Account"))
 				{
+					check = sBalance.matches(".*[a-zA-Z]+.*");
+					
 					if (begBalance.getText().equals("") || firstName.getText().equals("") || lastName.getText().equals(""))
 					{
 						textArea.setText("Information is Missing");
 					}
 					
-					else if (bank.numCheck(begBalance.getText()) == false)
+					else if (check == true)
 					{
 						textArea.setText("Initial amount can only contain numbers");
 					}
@@ -216,12 +222,14 @@ public class LocalBank {
 				
 				else if (select.getSelectedItem().equals("Deposit"))
 				{
+					check = sAmount.matches(".*[a-zA-Z]+.*");
+					
 					if (moneyAmount.getText().equals("") || accNum.getText().equals(""))
 					{
 						textArea.setText("Information is Missing");
 					}
 					
-					else if (bank.numCheck(begBalance.getText()) == false)
+					else if (check == true)
 					{
 						textArea.setText("Amount can only contain numbers");
 					}
@@ -235,12 +243,14 @@ public class LocalBank {
 				
 				else if (select.getSelectedItem().equals("Withdrawal"))
 				{
+					check = sAmount.matches(".*[a-zA-Z]+.*");
+					
 					if (moneyAmount.getText().equals("") || accNum.getText().equals(""))
 					{
 						textArea.setText("Information is Missing");
 					}
 					
-					else if (bank.numCheck(begBalance.getText()) == false)
+					else if (check == true)
 					{
 						textArea.setText("Amount can only contain numbers");
 					}

@@ -19,7 +19,7 @@ public class TicTacToe {
 
 	private JFrame frame;
 	
-	static int[][] score = new int[3][3];
+	int counter = 0;
 
 	/**
 	 * Launch the application.
@@ -64,23 +64,38 @@ public class TicTacToe {
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(240, 240, 240));
 		textArea.setFont(new Font("Monospaced", Font.BOLD, 14));
-		textArea.setBounds(18, 229, 395, 21);
+		textArea.setBounds(16, 232, 126, 21);
 		panel.add(textArea);
+		
+		JButton replay = new JButton("Play Again?");
+		replay.setFont(new Font("Tahoma", Font.BOLD, 13));
+		replay.setBounds(152, 234, 126, 21);
+		panel.add(replay);
+		replay.setVisible(false);
 	
 		JButton topLeft = new JButton("");
 		topLeft.addActionListener(new ActionListener()
 		{
-			
 			public void actionPerformed(ActionEvent e)
 			{
-				topLeft.setText(TTT.player(tracker));
-				
-				if (TTT.play(0, 0, tracker) == true)
+				if (TTT.check(0, 0) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					topLeft.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(0, 0, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		topLeft.setBounds(18, 19, 126, 59);
@@ -90,14 +105,24 @@ public class TicTacToe {
 		midLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				midLeft.setText(TTT.player(tracker));
-				
-				if (TTT.play(1, 0, tracker) == true)
+				if (TTT.check(1, 0) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					midLeft.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(1, 0, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		midLeft.setBounds(18, 89, 126, 59);
@@ -107,14 +132,24 @@ public class TicTacToe {
 		botLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				botLeft.setText(TTT.player(tracker));
-				
-				if (TTT.play(2, 0, tracker) == true)
+				if (TTT.check(2, 0) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					botLeft.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(2, 0, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		botLeft.setBounds(18, 159, 126, 59);
@@ -124,14 +159,24 @@ public class TicTacToe {
 		topCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				topCenter.setText(TTT.player(tracker));
-				
-				if (TTT.play(0, 1, tracker) == true)
+				if (TTT.check(0, 1) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					topCenter.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(0, 1, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		topCenter.setBounds(152, 19, 126, 59);
@@ -141,14 +186,24 @@ public class TicTacToe {
 		midCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				midCenter.setText(TTT.player(tracker));
-				
-				if (TTT.play(1, 1, tracker) == true)
+				if (TTT.check(1, 1) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					midCenter.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(1, 1, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		midCenter.setBounds(152, 89, 126, 59);
@@ -158,14 +213,24 @@ public class TicTacToe {
 		botCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				botCenter.setText(TTT.player(tracker));
-		
-				if (TTT.play(2, 1, tracker) == true)
+				if (TTT.check(2, 1) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					botCenter.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(2, 1, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 			
 		});
@@ -176,14 +241,24 @@ public class TicTacToe {
 		topRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				topRight.setText(TTT.player(tracker));
-				
-				if (TTT.play(0, 2, tracker) == true)
+				if (TTT.check(0, 2) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					topRight.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(0, 2, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		topRight.setBounds(288, 19, 126, 59);
@@ -193,14 +268,24 @@ public class TicTacToe {
 		midRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				midRight.setText(TTT.player(tracker));
-				
-				if (TTT.play(1, 2, tracker) == true)
+				if (TTT.check(1, 2) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					midRight.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(1, 2, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		midRight.setBounds(288, 89, 126, 59);
@@ -210,14 +295,24 @@ public class TicTacToe {
 		botRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				botRight.setText(TTT.player(tracker));
-				
-				if (TTT.play(2, 2, tracker) == true)
+				if (TTT.check(2, 2) == true)
 				{
-					textArea.setText(TTT.winner(tracker));
+					botRight.setText(TTT.player(tracker));
+					tracker = !tracker;
+					counter += 1;
+					
+					if (TTT.play(2, 2, tracker) == true || counter == 9)
+					{
+						textArea.setText(TTT.winner(tracker, counter));
+						TTT.flood();
+						replay.setVisible(true);
+					}
 				}
 				
-				tracker = !tracker;
+				else
+				{
+					textArea.setText("Invalid Move");
+				}
 			}
 		});
 		botRight.setBounds(288, 159, 126, 59);

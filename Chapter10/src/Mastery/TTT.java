@@ -17,16 +17,21 @@ public class TTT
 		}
 	}
 	
-	public static String winner(boolean tracker)
+	public static String winner(boolean tracker, int counter)
 	{
-		if (tracker == true)
+		if (counter == 9)
 		{
-			return("X Wins!");
+			return("Tie!");
+		}
+		
+		else if (tracker == true)
+		{
+			return("O Wins!");
 		}
 		
 		else
 		{
-			return("O Wins!");
+			return("X Wins!");
 		}
 	}
 	
@@ -40,6 +45,29 @@ public class TTT
 		else
 		{
 			return("O");
+		}
+	}
+	
+	public static void flood()
+	{
+		for (int row = 0; row < board.length; row++)
+		{
+			for (int col = 0; col < board[0].length; col++)
+			{
+				board[row][col] = "A";
+			}
+		}
+	}
+
+	public static boolean check(int row, int col)
+	{
+		if (board[row][col].equals(" "))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 	
@@ -88,6 +116,9 @@ public class TTT
 		{
 			return true;
 		}
+		
+		//test ties
+		
 		
 		return false;
 	}

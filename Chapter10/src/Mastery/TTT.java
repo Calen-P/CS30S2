@@ -17,11 +17,37 @@ public class TTT
 		}
 	}
 	
-	public static boolean play(int row, int col, int val, boolean tracker)
+	public static String winner(boolean tracker)
+	{
+		if (tracker == true)
+		{
+			return("X Wins!");
+		}
+		
+		else
+		{
+			return("O Wins!");
+		}
+	}
+	
+	public static String player(boolean tracker)
+	{
+		if (tracker == true)	
+		{
+			return("X");
+		}
+		
+		else
+		{
+			return("O");
+		}
+	}
+	
+	public static boolean play(int row, int col, boolean tracker)
 	{
 		String letter;
 		
-		if (val == 1)
+		if (tracker == true)
 		{
 			letter = "X";
 		}
@@ -45,7 +71,7 @@ public class TTT
 		//test columns
 		for (int c = 0; c < board.length; c++)
 		{
-			if (board[0][c].equals(board[1][c]) && board[1][c].equals(board[1][c]) && !(board[0][c].equals(" ")))
+			if (board[0][c].equals(board[1][c]) && board[1][c].equals(board[2][c]) && !(board[0][c].equals(" ")))
 			{
 				return true;
 			}

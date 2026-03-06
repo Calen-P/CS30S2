@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.Color;
 
 public class TicTacToe {
 	
@@ -59,6 +61,11 @@ public class TicTacToe {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
+		JTextArea textArea = new JTextArea();
+		textArea.setBackground(new Color(240, 240, 240));
+		textArea.setFont(new Font("Monospaced", Font.BOLD, 14));
+		textArea.setBounds(18, 229, 395, 21);
+		panel.add(textArea);
 	
 		JButton topLeft = new JButton("");
 		topLeft.addActionListener(new ActionListener()
@@ -66,17 +73,12 @@ public class TicTacToe {
 			
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					topLeft.setText("X");
-				}
+				topLeft.setText(TTT.player(tracker));
 				
-				else if (tracker == false)
+				if (TTT.play(0, 0, tracker) == true)
 				{
-					topLeft.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
-				
-				System.out.println(TTT.play(0, 0, 1, tracker));
 				
 				tracker = !tracker;
 			}
@@ -88,14 +90,11 @@ public class TicTacToe {
 		midLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					midLeft.setText("X");
-				}
+				midLeft.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(1, 0, tracker) == true)
 				{
-					midLeft.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -108,14 +107,11 @@ public class TicTacToe {
 		botLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					botLeft.setText("X");
-				}
+				botLeft.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(2, 0, tracker) == true)
 				{
-					botLeft.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -128,14 +124,11 @@ public class TicTacToe {
 		topCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					topCenter.setText("X");
-				}
+				topCenter.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(0, 1, tracker) == true)
 				{
-					topCenter.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -148,14 +141,11 @@ public class TicTacToe {
 		midCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					midCenter.setText("X");
-				}
+				midCenter.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(1, 1, tracker) == true)
 				{
-					midCenter.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -168,14 +158,11 @@ public class TicTacToe {
 		botCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
+				botCenter.setText(TTT.player(tracker));
+		
+				if (TTT.play(2, 1, tracker) == true)
 				{
-					botCenter.setText("X");
-				}
-				
-				else
-				{
-					botCenter.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -189,14 +176,11 @@ public class TicTacToe {
 		topRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					topRight.setText("X");
-				}
+				topRight.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(0, 2, tracker) == true)
 				{
-					topRight.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -209,14 +193,11 @@ public class TicTacToe {
 		midRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					midRight.setText("X");
-				}
+				midRight.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(1, 2, tracker) == true)
 				{
-					midRight.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -229,14 +210,11 @@ public class TicTacToe {
 		botRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				if (tracker == true)	
-				{
-					botRight.setText("X");
-				}
+				botRight.setText(TTT.player(tracker));
 				
-				else
+				if (TTT.play(2, 2, tracker) == true)
 				{
-					botRight.setText("O");
+					textArea.setText(TTT.winner(tracker));
 				}
 				
 				tracker = !tracker;
@@ -244,9 +222,5 @@ public class TicTacToe {
 		});
 		botRight.setBounds(288, 159, 126, 59);
 		panel.add(botRight);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(18, 229, 395, 21);
-		panel.add(textArea);
 	}
 }

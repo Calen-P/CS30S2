@@ -37,7 +37,7 @@ public class TicTacToe {
 		});
 		
 		TTT TTT = new TTT();
-		
+		System.out.println("Test");
 	}
 	
 	/**

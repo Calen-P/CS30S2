@@ -34,8 +34,7 @@ public class TTT
 			return("X Wins!");
 		}
 	}
-	
-	
+
 	public static String player(boolean tracker)
 	{
 		if (tracker == true)	

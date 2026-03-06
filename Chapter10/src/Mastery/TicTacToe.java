@@ -39,8 +39,6 @@ public class TicTacToe {
 		TTT TTT = new TTT();
 	}
 	
-	
-	
 	/**
 	 * Create the application.
 	 */

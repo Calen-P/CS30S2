@@ -67,11 +67,7 @@ public class TicTacToe {
 		textArea.setBounds(16, 232, 126, 21);
 		panel.add(textArea);
 		
-		JButton replay = new JButton("Play Again?");
-		replay.setFont(new Font("Tahoma", Font.BOLD, 13));
-		replay.setBounds(152, 234, 126, 21);
-		panel.add(replay);
-		replay.setVisible(false);
+		
 	
 		JButton topLeft = new JButton("");
 		topLeft.addActionListener(new ActionListener()
@@ -88,7 +84,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -115,7 +110,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -142,7 +136,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -169,7 +162,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -196,7 +188,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -223,7 +214,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -251,7 +241,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -278,7 +267,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				
@@ -305,7 +293,6 @@ public class TicTacToe {
 					{
 						textArea.setText(TTT.winner(tracker, counter));
 						TTT.flood();
-						replay.setVisible(true);
 					}
 				}
 				

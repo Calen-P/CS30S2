@@ -1,34 +1,70 @@
+/*
+
+Program: Customer.java         Last Date of this Revision: March 06, 2026
+
+Purpose: This class represents a bank customer.
+Each customer has a first name and a last name.
+The class stores the customer's basic identifying information
+and provides a method to return the customer's name as a string.
+
+Author: Calen Plana
+School: CHHS
+Course: Computer Programming CS30
+ 
+
+*/
+
 package Mastery;
+
+/**
+ * Customer
+ * 
+ * 
+ * 
+ * Author: [Your Name]
+ * Course: CS30
+ */
 public class Customer 
 {
-private String firstName, lastName;
+	/** Customer's first name */
+	private String firstName;
+
+	/** Customer's last name */
+	private String lastName;
 		
 	
 	/**
-	 * constructor
-	 * pre: none
-	 * post: A Customer object has been created. 
-	 * Customer data has been initialized with parameters.
+	 * Constructor
+	 * 
+	 * Creates a Customer object with a first and last name.
+	 * 
+	 * Precondition: none
+	 * Postcondition: A Customer object is created with the
+	 * provided first and last names.
 	 */
-	public Customer(String fName, String lName) {
+	public Customer(String fName, String lName) 
+	{
 		firstName = fName;
 		lastName = lName;
 	}
 	
 
-	/** 
-	 * Returns a String that represents the Customer object.
-	 * pre: none
-	 * post: A string representing the Customer object has 
-	 * been returned.
+	/**
+	 * Returns a string representation of the Customer object.
+	 * 
+	 * Precondition: none
+	 * Postcondition: A string containing the customer's
+	 * full name has been returned.
+	 * 
+	 * @return String containing the customer's first and last name
 	 */
-	public String toString() {
+	public String toString() 
+	{
 		String custString;
 
-		custString = " " + firstName + " " + lastName + " ";	//changed for Chap 11 Exer 1
-	 	return(custString);
-	}
+		// Format the customer's full name
+		custString = " " + firstName + " " + lastName + " ";  
 
-	
-	
+		return(custString);
+	}
 }

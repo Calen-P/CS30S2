@@ -37,7 +37,6 @@ public class TicTacToe {
 		});
 		
 		TTT TTT = new TTT();
-		System.out.println("Test");
 	}
 	
 	/**
@@ -77,6 +76,8 @@ public class TicTacToe {
 					topLeft.setText("O");
 				}
 				
+				System.out.println(TTT.play(0, 0, 1, tracker));
+				
 				tracker = !tracker;
 			}
 		});
@@ -90,7 +91,6 @@ public class TicTacToe {
 				if (tracker == true)	
 				{
 					midLeft.setText("X");
-					System.out.println("Test.");
 				}
 				
 				else

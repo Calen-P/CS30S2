@@ -10,7 +10,7 @@ public class MyFileP2 {
 		Scanner input = new Scanner(System.in);
 		String response;
 		
-		textFile = new File("C:\\Users\\38018005\\eclipse-workspace\\Chapter11\\src\\Test");
+		textFile = new File("../Chapter11/src/Test");
 		
 		if(textFile.exists())
 		{

@@ -14,14 +14,14 @@ public class MyFileP2 {
 		
 		if(textFile.exists())
 		{
-			System.out.println("zzz.txt file exists.");
+			System.out.println("Test.txt file exists.");
 		}
 		else
 		{
 			try
 			{
 				textFile.createNewFile();
-				System.out.println("zzz.txt file has been created.");
+				System.out.println("Test.txt file has been created.");
 			}
 			catch (IOException e) 
 			{

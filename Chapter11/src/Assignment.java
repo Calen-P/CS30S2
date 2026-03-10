@@ -20,8 +20,9 @@ public class Assignment {
 			in = new FileReader(textFile);
 			readFile = new BufferedReader(in);
 			
-			while((message = readFile.readLine()) != null)
+			while ((message = readFile.readLine()) != null)
 			{
+				System.out.println(message);
 				message = readFile.readLine();
 				System.out.println(message);
 			}

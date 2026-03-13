@@ -1,5 +1,13 @@
 package Mastery;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Random;
 
 public class WordGuess 
 {
@@ -9,14 +17,19 @@ public class WordGuess
 		final String FLAG = "!";
 
 		//Create a File object with the name of your file is the parameter
+		File wordList = new File("../Chapter11/src/Mastery/Words");
 
 		//Declare a File reader object
+		FileReader in;
 
 		//Declare a BufferedReader object
+		BufferedReader readFile;
 
 		//Create a random number object
+		Random random = new Random();
 
-		int numWords, wordToGuess;
+		int numWords = 0;
+		int wordToGuess;
 		String secretWord = "";
 		String wordSoFar = "", updatedWord = "";
 		String letterGuess, wordGuess = "";
@@ -27,24 +40,34 @@ public class WordGuess
 		/* select secret word */
 		try {
 				//initialize the file reader object to name of the file object
+				in = new FileReader(wordList);
                
-               //initialize the BufferedReader objct to the name of the file reader as a parameter
+               //initialize the BufferedReader object to the name of the file reader as a parameter
+				readFile = new BufferedReader(in);
 
 				//Get the number of words in the file using readFile
+				while((wordList = readFile.readLine()) != null)
+				{
+					numWords += 1;
+				}
+				
                
                //update the word to guess to the random object and number of words read plus one
-              
+				wordToGuess = random.nextInt(numWords) + 1;
 				
-               //itirate through the word to guess slots
-                       //update the secret work from the lines read from the file
+               //iterate through the word to guess slots
+                       //update the secret word from the lines read from the file
               
                //close your BufferedReader object
+				in.close();
                //close your FileReader object
+				readFile.close();
 				
-   	//} catch (/* ?? */) 
+   	} catch (IOException e) 
        {
-			/* ?? */
-	//	} catch (/* ?? */) 
+   			System.out.println("File could not be created.");
+   			System.err.println("IOException: " + e.getMessage());
+		} catch (/* ?? */) 
        {
 			/* ?? */
    	}

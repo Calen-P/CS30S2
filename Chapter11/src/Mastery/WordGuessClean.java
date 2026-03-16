@@ -8,11 +8,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Random;
+import java.util.Scanner;
 
 public class WordGuessClean {
 
 	public static void main(String[] args)
 	{
+		Scanner userInput = new Scanner(System.in);
+		
 		final String FLAG = "!";
 
 		//Create a File object with the name of your file is the parameter
@@ -34,10 +37,10 @@ public class WordGuessClean {
 		String letterGuess, wordGuess = "";
 		int numGuesses = 0;
 		
-		try
+		//try
 		{
 			
-			readFile = new BufferedReader(in);
+			//readFile = new BufferedReader(in);
 		}
 	}
 

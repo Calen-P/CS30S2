@@ -34,7 +34,7 @@ public class WordGuess
 		int numWords = 0;
 		int wordToGuess;
 		String secretWord = "";
-		String wordSoFar = "", updatedWord = "";
+		String wordSoFar = "";
 		String letterGuess, wordGuess = "";
 		int numGuesses = 0;	
 		
@@ -57,6 +57,8 @@ public class WordGuess
 				in.close();
 				
 				in = new FileReader(wordList);
+				
+				readFile = new BufferedReader(in);
                //update the word to guess to the random object and number of words read plus one
 				wordToGuess = random.nextInt(numWords) + 1;
 				
@@ -133,7 +135,6 @@ public class WordGuess
             	}
             	wordSoFar = updated.toString();
         	}
-			
             //???
 			
 

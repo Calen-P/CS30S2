@@ -118,41 +118,29 @@ public class WordGuess
 			/* increment number of guesses */
 			numGuesses ++;
 			//?
+			
+			char[] phraseLetters = letterGuess.toCharArray();
 
 			/* player correctly guessed a letter--extract string in wordSoFar up to the letter
 			 * guessed and then append guessed letter to that string. Next, extract rest of
 			 * wordSoFar and append after the guessed letter
 			 */
-			if (secretWord.contains(letterGuess))
-			{
-				StringBuilder updated = new StringBuilder(wordSoFar);
-            	for (int i = 0; i < secretWord.length(); i++)
-            	{
-                	if (String.valueOf(secretWord.charAt(i)).equals(letterGuess))
-                	{
+			if (secretWord.contains(letterGuess)) {
+            	StringBuilder updated = new StringBuilder(wordSoFar);
+            	for (int i = 0; i < secretWord.length(); i++) {
+                	if (String.valueOf(secretWord.charAt(i)).equals(letterGuess)) {
                     	updated.setCharAt(i, letterGuess.charAt(0));
                 	}
             	}
             	wordSoFar = updated.toString();
         	}
-            //???
-			
 
+        	// Display updated word
+        	System.out.println(wordSoFar + "\n");
 
+    	} while (!letterGuess.equals(FLAG) && !wordSoFar.equals(secretWord));
 
-
-			/* display guessed letter instead of dash */
-			    //??
-			System.out.println(wordSoFar + "\n");
-
-
-		} while (!letterGuess.equals(FLAG) && !wordSoFar.equals(secretWord));
-
-		
-
-       
-		/* finish game and display message and number of guesses */
-		// If the flag was used, allow full word guess
+    	// If the flag was used, allow full word guess
     	if (letterGuess.equals(FLAG)) {
         	System.out.print("What is your guess? ");
         	wordGuess = userInput.nextLine().toUpperCase();
@@ -170,6 +158,5 @@ public class WordGuess
     	System.out.println("You made " + numGuesses + " guesses.");
 
     	userInput.close(); // Clean up the Scanner
-       //??
 	}
 }

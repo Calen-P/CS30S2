@@ -67,7 +67,6 @@ public class WordGuess
 				{
 					//update the secret word from the lines read from the file
 					secretWord = readFile.readLine();
-					System.out.println(secretWord);
 				}
 				
 				secretWord = secretWord.toUpperCase(); 
@@ -104,7 +103,7 @@ public class WordGuess
 			wordSoFar += "-";
 		}
 	
-
+		System.out.println(wordSoFar);
 
 
 		/* allow player to make guesses*/

@@ -69,6 +69,8 @@ public class WordGuess
 					secretWord = readFile.readLine();
 					System.out.println(secretWord);
 				}
+				
+				secretWord = secretWord.toUpperCase(); 
               
                //close your BufferedReader object
 				in.close();
@@ -95,6 +97,8 @@ public class WordGuess
        //iterate through the secret word, and update the word so far variable to represent using dashes 
        //the length of the secret word
        //output the word so far using dashes
+		wordSoFar = "";
+		
 		for (int i = 0; i < secretWord.length(); i++)
 		{
 			wordSoFar += "-";

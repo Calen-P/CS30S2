@@ -31,11 +31,12 @@ public class CountVowels
        /* count the vowels in the file */
        try {
                 //new File object required
+    	   		//new File reader object required
+    	   		//new BufferedReader object required
+    	   
     	   		textFile = new File(fileName);
-                //new File reader object required
-    	   		in  = new FileReader(textFile);
-                //new BufferedReader object required
-    	   		readFile = new BufferedReader(in);
+	   			in  = new FileReader(textFile);
+	   			readFile = new BufferedReader(in);
 
                 //read the lines from the file
     	   		while ((lineInFile = readFile.readLine()) != null)

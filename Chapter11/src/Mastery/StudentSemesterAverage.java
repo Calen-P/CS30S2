@@ -163,6 +163,7 @@ public class StudentSemesterAverage {
 				String stuName = studentName.getText();
 				String grdLevel = gradeLevel.getText();
 				String semNum = semNumber.getText();
+				String test;
 				
 				int g1 = Integer.parseInt(grade1.getText());
 				int g2 = Integer.parseInt(grade2.getText());
@@ -171,7 +172,7 @@ public class StudentSemesterAverage {
 				
 				int avg = (g1 + g2 + g3 + g4) / 4;
 				
-				average.setText(Integer.toString(avg));
+				average.setText(Integer.toString(avg) + "%");
 				
 				try
 				{
@@ -196,6 +197,9 @@ public class StudentSemesterAverage {
 					System.out.println("Cannot Write in File");
 					System.err.println("IOException: " + e1.getMessage());
 				}
+				
+				SSASecondaryWindow sw = new SSASecondaryWindow();
+				sw.setVisible(true);
 			}
 		});
 		save.setFont(new Font("Tahoma", Font.BOLD, 12));

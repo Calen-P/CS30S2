@@ -8,12 +8,12 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -160,10 +160,11 @@ public class StudentSemesterAverage {
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
+				BufferedWriter writeFile;
+				
 				String stuName = studentName.getText();
 				String grdLevel = gradeLevel.getText();
 				String semNum = semNumber.getText();
-				String test;
 				
 				int g1 = Integer.parseInt(grade1.getText());
 				int g2 = Integer.parseInt(grade2.getText());
@@ -176,12 +177,14 @@ public class StudentSemesterAverage {
 				
 				try
 				{
-					FileOutputStream out = new FileOutputStream(stuAvgFile);
-					ObjectOutputStream writeStu = new ObjectOutputStream(out);
+					FileWriter fw = new FileWriter(stuAvgFile, true);
+					writeFile = new BufferedWriter(fw);
 					
-					writeStu.writeObject("Name: " + stuName + ", Grade Level: " + grdLevel + ", Semester: " + semNum + ", Grades: " + g1 + ", " + g2 + ", " + g3 + ", " + g4 + ". Average: " + avg + "%");
 					
-					writeStu.close();
+					writeFile.write("Name: " + stuName + ", Grade Level: " + grdLevel + ", Semester: " + semNum + ", Grades: " + g1 + ", " + g2 + ", " + g3 + ", " + g4 + ". Average: " + avg + "%");
+					writeFile.newLine();
+					
+					writeFile.close();
 				}
 				
 				catch (FileNotFoundException e1) 
@@ -219,10 +222,15 @@ public class StudentSemesterAverage {
 					in = new FileReader(stuAvgFile);
 					readFile = new BufferedReader(in);
 					
+					summary.setText("");
+					
 					while((text = readFile.readLine()) != null)
 					{
-						summary.setText(text);
+						summary.append(text + "\n");
 					}
+					
+					readFile.close();
+					in.close();
 				}
 				
 				catch(FileNotFoundException e1)

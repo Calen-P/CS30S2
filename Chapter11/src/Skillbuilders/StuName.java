@@ -1,3 +1,4 @@
+package Skillbuilders;
 import java.io.Serializable;
 
 public class StuName implements Serializable

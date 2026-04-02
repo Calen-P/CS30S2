@@ -1,165 +1,158 @@
+/*
+
+Program: WordGuess.java          Last Date of this Revision: April 02, 2026
+
+Purpose:
+ * - Reads a list of words from a file
+ * - Randomly selects one as the secret word
+ * - Allows the user to guess letters or the full word
+ * - Tracks number of guesses and displays results
+Author: Calen Plana
+School: CHHS
+Course: Computer Programming CS30
+ 
+
+*/
+
 package Mastery;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.Random;
 import java.util.Scanner;
 
-public class WordGuess 
-{
+public class WordGuess {
 
-	public static void main(String[] args) 
-	{
-		Scanner userInput = new Scanner(System.in);
-		
-		final String FLAG = "!";
+    public static void main(String[] args) {
 
-		//Create a File object with the name of your file as the parameter
-		File wordList = new File("../Chapter11/src/Mastery/Words");
+        Scanner userInput = new Scanner(System.in);
 
-		//Declare a File reader object
-		FileReader in;
+        // Special flag to allow full-word guess
+        final String FLAG = "!";
 
-		//Declare a BufferedReader object
-		BufferedReader readFile;
+        // File containing word list
+        File wordList = new File("../Chapter11/src/Mastery/Words");
 
-		//Create a random number object
-		Random random = new Random();
+        // File reading objects
+        BufferedReader reader;
 
-		int numWords = 0;
-		int wordToGuess;
-		String secretWord = "";
-		String wordSoFar = "";
-		String letterGuess, wordGuess = "";
-		int numGuesses = 0;	
-		
-		
+        // Random number generator
+        Random random = new Random();
 
-		/* select secret word */
-		try
-		{
-				//initialize the file reader object to name of the file object
-				in = new FileReader(wordList);
-               
-               //initialize the BufferedReader object to the name of the file reader as a parameter
-				readFile = new BufferedReader(in);
+        // Game variables
+        int numWords = 0;
+        int wordToGuess;
+        String secretWord = "";
+        String wordSoFar = "";
+        String letterGuess;
+        String wordGuess = "";
+        int numGuesses = 0;
 
-				//Get the number of words in the file using readFile
-				while((wordSoFar = readFile.readLine()) != null)
-				{
-					numWords += 1;
-				}
-				in.close();
-				
-				in = new FileReader(wordList);
-				
-				readFile = new BufferedReader(in);
-               //update the word to guess to the random object and number of words read plus one
-				wordToGuess = random.nextInt(numWords) + 1;
-				
-               //iterate through the word to guess slots
-				for (int i = 0; i <= wordToGuess; i++)
-				{
-					//update the secret word from the lines read from the file
-					secretWord = readFile.readLine();
-				}
-				
-				secretWord = secretWord.toUpperCase(); 
-              
-               //close your BufferedReader object
-				in.close();
-               //close your FileReader object
-				readFile.close();
-				
-		}
-		catch(FileNotFoundException e)
-		{
-			System.out.println("File does not exist.");
-			System.err.println("fileNotFoundException: " + e.getMessage());
-		}
-		catch (IOException e) 
-		{
-			System.out.println("Problem reading file.");
-			System.err.println("IOException: " + e.getMessage());
-		}
+        /**
+         * STEP 1: Select a random word from the file
+         */
+        try {
+            // First pass: count number of words
+            reader = new BufferedReader(new FileReader(wordList));
+            while (reader.readLine() != null) {
+                numWords++;
+            }
+            reader.close();
 
+            // Second pass: retrieve random word
+            reader = new BufferedReader(new FileReader(wordList));
 
+            wordToGuess = random.nextInt(numWords) + 1;
 
-		/* begin the game */
-		System.out.println("WordGuess game.\n");
+            for (int i = 0; i <= wordToGuess; i++) {
+                secretWord = reader.readLine();
+            }
 
-       //iterate through the secret word, and update the word so far variable to represent using dashes 
-       //the length of the secret word
-       //output the word so far using dashes
-		wordSoFar = "";
-		
-		for (int i = 0; i < secretWord.length(); i++)
-		{
-			wordSoFar += "-";
-		}
-	
-		System.out.println(wordSoFar);
+            // Convert to uppercase for consistent comparison
+            secretWord = secretWord.toUpperCase();
 
+            reader.close();
 
-		/* allow player to make guesses*/
+        } catch (IOException e) {
+            System.out.println("Error reading file.");
+            System.err.println("IOException: " + e.getMessage());
+        }
 
-		do
-		{
-			//?? prompt for a letter
-			System.out.print("Enter a letter (" + FLAG + " to guess entire word): ");
-        	letterGuess = userInput.nextLine().toUpperCase();
-        	
-        	if (letterGuess.equals(FLAG)) {
-            	break;
-        	}
+        /**
+         * STEP 2: Initialize game display
+         */
+        System.out.println("WordGuess game.\n");
 
-			/* increment number of guesses */
-			numGuesses ++;
-			//?
-			
-			char[] phraseLetters = letterGuess.toCharArray();
+        // Create dashed version of the secret word
+        for (int i = 0; i < secretWord.length(); i++) {
+            wordSoFar += "-";
+        }
 
-			/* player correctly guessed a letter--extract string in wordSoFar up to the letter
-			 * guessed and then append guessed letter to that string. Next, extract rest of
-			 * wordSoFar and append after the guessed letter
-			 */
-			if (secretWord.contains(letterGuess)) {
-            	StringBuilder updated = new StringBuilder(wordSoFar);
-            	for (int i = 0; i < secretWord.length(); i++) {
-                	if (String.valueOf(secretWord.charAt(i)).equals(letterGuess)) {
-                    	updated.setCharAt(i, letterGuess.charAt(0));
-                	}
-            	}
-            	wordSoFar = updated.toString();
-        	}
+        System.out.println(wordSoFar);
 
-        	// Display updated word
-        	System.out.println(wordSoFar + "\n");
+        /**
+         * STEP 3: Main game loop (letter guessing)
+         */
+        do {
+            // Prompt user for input
+            System.out.print("Enter a letter (" + FLAG + " to guess entire word): ");
+            letterGuess = userInput.nextLine().toUpperCase();
 
-    	} while (!letterGuess.equals(FLAG) && !wordSoFar.equals(secretWord));
+            // Exit loop if user wants to guess full word
+            if (letterGuess.equals(FLAG)) {
+                break;
+            }
 
-    	// If the flag was used, allow full word guess
-    	if (letterGuess.equals(FLAG)) {
-        	System.out.print("What is your guess? ");
-        	wordGuess = userInput.nextLine().toUpperCase();
-    	}
+            // Increment guess counter
+            numGuesses++;
 
-    	// Final check for win or loss
-    	if (wordGuess.equals(secretWord) || wordSoFar.equals(secretWord)) {
-        	System.out.println("You won!");
-    	} else {
-        	System.out.println("Sorry. You lose.");
-    	}
+            /**
+             * Check if guessed letter exists in secret word
+             * If yes, reveal positions in wordSoFar
+             */
+            if (secretWord.contains(letterGuess)) {
+                StringBuilder updatedWord = new StringBuilder(wordSoFar);
 
-    	// Game summary
-    	System.out.println("The secret word is " + secretWord);
-    	System.out.println("You made " + numGuesses + " guesses.");
+                for (int i = 0; i < secretWord.length(); i++) {
+                    if (String.valueOf(secretWord.charAt(i)).equals(letterGuess)) {
+                        updatedWord.setCharAt(i, letterGuess.charAt(0));
+                    }
+                }
 
-    	userInput.close(); // Clean up the Scanner
-	}
+                wordSoFar = updatedWord.toString();
+            }
+
+            // Display updated progress
+            System.out.println(wordSoFar + "\n");
+
+        } while (!letterGuess.equals(FLAG) && !wordSoFar.equals(secretWord));
+
+        /**
+         * STEP 4: Full word guess (if user entered FLAG)
+         */
+        if (letterGuess.equals(FLAG)) {
+            System.out.print("What is your guess? ");
+            wordGuess = userInput.nextLine().toUpperCase();
+        }
+
+        /**
+         * STEP 5: Determine win or loss
+         */
+        if (wordGuess.equals(secretWord) || wordSoFar.equals(secretWord)) {
+            System.out.println("You won!");
+        } else {
+            System.out.println("Sorry. You lose.");
+        }
+
+        /**
+         * STEP 6: Display game summary
+         */
+        System.out.println("The secret word is " + secretWord);
+        System.out.println("You made " + numGuesses + " guesses.");
+
+        // Close scanner
+        userInput.close();
+    }
 }

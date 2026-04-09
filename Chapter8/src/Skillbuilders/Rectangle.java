@@ -83,4 +83,24 @@ public class Rectangle implements Comparable
 			return -1;
 		}
 	}
+	
+	public int compareToArea(Object r)
+	{
+		Rectangle testRect = (Rectangle)r;
+		
+		if ((length * width) == testRect.area())
+		{
+			return 0;
+		}
+		
+		else if ((length * width) < testRect.area())
+		{
+			return -1;
+		}
+
+		else
+		{
+			return 1;
+		}
+	}
 }

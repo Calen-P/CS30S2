@@ -1,21 +1,30 @@
 package Skillbuilders;
 
-public class ComparableArea extends Rectangle implements Comparable
+public class ComparableArea extends Rectangle
 {
-	public int compareTo(Object p)
+	private double area;
+	
+	public ComparableArea(Object obj)
 	{
-		Puck testPuck = (Puck)p;
+		Rectangle testRect = (Rectangle)obj;
 		
-		if (super.area() < testPuck.getWeight())
-		{
-			return -1;
-		}
+		area = testRect.area();
+	}
+	
+	public int compareToArea(Object r)
+	{
+		Rectangle testRect = (Rectangle)r;
 		
-		else if (weight == testPuck.getWeight())
+		if (area == testRect.area())
 		{
 			return 0;
 		}
 		
+		else if (area < testRect.area())
+		{
+			return -1;
+		}
+
 		else
 		{
 			return 1;

@@ -1,4 +1,4 @@
-package Skillbuilders;
+package Demo;
 
 public class Puck extends Disk implements Comparable
 {

@@ -1,4 +1,4 @@
-package Mastery;
+package UEmployee;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
@@ -7,10 +7,10 @@ public class University {
 
 	public static void main(String[] args)
 	{
-		Faculty emp1 = new Faculty("Henry", 110000, "Professor");
-		Faculty emp2 = new Faculty("Tony", 90000, "Associate Professor");
-		Staff emp3 = new Staff("Jennifer", 80000, "IT Support");
-		Staff emp4 = new Staff("Allan", 70000, "Secretary");
+		Faculty emp1 = new Faculty("Henry Cavil", 110000, "Professor");
+		Faculty emp2 = new Faculty("Tony Stark", 90000, "Associate Professor");
+		Staff emp3 = new Staff("Jennifer Lopez", 80000, "IT Support");
+		Staff emp4 = new Staff("Sarah Lance", 70000, "Secretary");
 		
 		NumberFormat money = NumberFormat.getCurrencyInstance();
 		

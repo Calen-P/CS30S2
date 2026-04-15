@@ -1,4 +1,4 @@
-package Mastery;
+package UEmployee;
 
 public class Faculty extends UEmployee
 {

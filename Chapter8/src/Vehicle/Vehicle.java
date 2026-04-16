@@ -11,24 +11,14 @@ public abstract class Vehicle
 		cost = c;
 	}
 	
-	public void ignition()
+	public String drive()
 	{
-		System.out.println("Vroom Vroom!");
+		return("Vroom Vroom!");
 	}
 	
-	public void turnOff()
+	public String stop()
 	{
-		System.out.println("Vroom-Pfft!");
-	}
-	
-	public void drive()
-	{
-		System.out.println("Nyoom!");
-	}
-	
-	public void stop()
-	{
-		System.out.println("Screech!");
+		return("Screech!");
 	}
 	
 	public String toString()
@@ -36,6 +26,8 @@ public abstract class Vehicle
 		return("The Vehicle is Called " + name + " and Costs " + cost);
 	}
 	
-	public abstract void honk();
+	public abstract String honk();
+	
+	public abstract int capacity();
 	
 }

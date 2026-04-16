@@ -12,14 +12,14 @@ public class Drive {
 		
 		Scanner input = new Scanner(System.in);
 		
-		String choice, action;
+		String choice, action = null;
 		int vNum;
 		
 		Vehicle v = v1;
 		
 		do
 		{
-			System.out.println("Do You Want to (D)rive, Retrieve (I)nformation, or (Q)uit?");
+			System.out.println("(D)rive \\ (N)ame and Price \\ (C)apacity \\ (Q)uit?");
 			System.out.println("Enter Your Choice: ");
 			choice = input.next();
 			
@@ -40,10 +40,39 @@ public class Drive {
 				{
 					do
 					{
+						System.out.println("Do You Want to (D)rive, (S)top, (H)onk, or (T)urn Off Engine?");
+						System.out.println("Enter Your Choice: ");
+						action = input.next();
 						
-					} while(!action.equalsIgnoreCase("S"));
+						if (action.equalsIgnoreCase("H"))
+						{
+							System.out.println(v.honk());
+						}
+						
+						else if (action.equalsIgnoreCase("D"))
+						{
+							System.out.println(v.drive());
+						}
+						
+						else if (action.equalsIgnoreCase("S"))
+						{
+							System.out.println(v.stop());
+						}
+						
+					} while(!action.equalsIgnoreCase("T"));
+				}
+				
+				else if (choice.equalsIgnoreCase("N"))
+				{
+					System.out.println(v.toString());
+				}
+				
+				else if (choice.equalsIgnoreCase("C"));
+				{
+					System.out.println("This Vehicle Can Fit Up to " + v.capacity() + " people.");
 				}
 			}
 		} while(!choice.equalsIgnoreCase("Q"));
+		System.out.print("Goodbye!");
 	}
 }

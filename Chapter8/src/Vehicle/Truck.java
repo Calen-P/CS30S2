@@ -7,8 +7,13 @@ public class Truck extends Vehicle
 		super(name, cost);
 	}
 	
-	public void honk()
+	public String honk()
 	{
-		System.out.print("Honk Honk!");
+		return("Honk Honk!");
+	}
+	
+	public int capacity()
+	{
+		return(5);
 	}
 }

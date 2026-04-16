@@ -7,8 +7,13 @@ public class Car extends Vehicle
 		super(name, cost);
 	}
 	
-	public void honk()
+	public String honk()
 	{
-		System.out.print("Beep Beep!");
+		return("Beep Beep!");
+	}
+	
+	public int capacity()
+	{
+		return(6);
 	}
 }

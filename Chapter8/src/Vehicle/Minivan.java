@@ -7,8 +7,13 @@ public class Minivan extends Vehicle
 		super(name, cost);
 	}
 	
-	public void honk()
+	public String honk()
 	{
-		System.out.print("Wah Wah!");
+		return("Wah Wah!");
+	}
+	
+	public int capacity()
+	{
+		return(8);
 	}
 }

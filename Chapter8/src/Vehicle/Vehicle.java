@@ -1,5 +1,7 @@
 package Vehicle;
 
+import java.text.NumberFormat;
+
 public abstract class Vehicle
 {
 	private String name;
@@ -23,7 +25,9 @@ public abstract class Vehicle
 	
 	public String toString()
 	{
-		return("The Vehicle is Called " + name + " and Costs " + cost);
+		NumberFormat money = NumberFormat.getCurrencyInstance();
+		
+		return("The Vehicle is Called " + name + " and Costs " + money.format(cost));
 	}
 	
 	public abstract String honk();

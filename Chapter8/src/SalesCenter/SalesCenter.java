@@ -61,7 +61,7 @@ public class SalesCenter {
 					payEmployee(emp, payArg);
 				}
 			}
-		} while(!action.equalsIgnoreCase("Q"));;
+		} while(!action.equalsIgnoreCase("Q"));
 		
 		System.out.println("have a Great Day!");
 	}

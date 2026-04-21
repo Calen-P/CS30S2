@@ -6,9 +6,4 @@ public class PersonalAcct extends Account
 	{
 		super(bal, fName, lName, s, c, p, pCode);
 	}
-	
-	public double getBalance()
-	{
-		return(super.getBalance());
-	}
 }

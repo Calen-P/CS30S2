@@ -11,8 +11,6 @@ public class Account {
 	private Customer cust;
 	private String acctID;
 	
-		
-	
 	/**
 	 * constructor
 	 * pre: none

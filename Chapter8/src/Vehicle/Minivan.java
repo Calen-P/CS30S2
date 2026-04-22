@@ -2,9 +2,9 @@ package Vehicle;
 
 public class Minivan extends Vehicle
 {
-	public Minivan(String name, double cost)
+	public Minivan(String n, double c, int city, int hwy, int seatCap, String carVol)
 	{
-		super(name, cost);
+		super(n, c, city, hwy, seatCap, carVol);
 	}
 	
 	public String honk()

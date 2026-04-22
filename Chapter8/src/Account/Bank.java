@@ -44,15 +44,14 @@ public class Bank {
 				{
 					System.out.println("Enter Amount You Would Like to Withdraw: ");
 					amount = input.nextDouble();
-					acct.test(amount);
+					acct.test(amount, false);
 				}
 				
 				else if (choice.equalsIgnoreCase("D"))
 				{
 					System.out.println("Enter Amount You Would Like to Deposit: ");
 					amount = input.nextDouble();
-					acct.deposit(amount);
-					System.out.println("Your Balance is Now: " + money.format(acct.getBalance()));
+					acct.test(amount, true);
 				}
 				
 				else if (choice.equalsIgnoreCase("C"))

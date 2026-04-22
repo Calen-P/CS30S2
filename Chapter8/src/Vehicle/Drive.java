@@ -6,9 +6,9 @@ public class Drive {
 
 	public static void main(String[] args)
 	{
-		Car v1 = new Car("Mazda 5", 36300);
-		Truck v2 = new Truck("Ford F-150", 70995);
-		Minivan v3 = new Minivan("Toyota Sienna", 49370);
+		Car v1 = new Car("Mazda 5", 36300, 21, 28, 6, "5.58-44.4");
+		Truck v2 = new Truck("Ford F-150", 70995, 20, 21, 3, "52.8 to 77.4");
+		Minivan v3 = new Minivan("Toyota Sienna", 49370, 32, 36, 8, "33.5-75.2");
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -19,7 +19,7 @@ public class Drive {
 		
 		do
 		{
-			System.out.println("(D)rive \\ (N)ame and Price \\ (C)apacity \\ (Q)uit?");
+			System.out.println("(D)rive \\ (N)ame and Price \\ (C)apacity \\ (F)uel Economy \\ (Q)uit?");
 			System.out.println("Enter Your Choice: ");
 			choice = input.next();
 			
@@ -67,9 +67,14 @@ public class Drive {
 					System.out.println(v.toString());
 				}
 				
-				else if (choice.equalsIgnoreCase("C"));
+				else if (choice.equalsIgnoreCase("C"))
 				{
-					System.out.println("This Vehicle Can Fit Up to " + v.capacity() + " people.");
+					System.out.println(v.getSeatCap());
+				}
+				
+				else if (choice.equalsIgnoreCase("F"));
+				{
+					System.out.println(v.getFuelEco());
 				}
 			}
 		} while(!choice.equalsIgnoreCase("Q"));

@@ -11,28 +11,36 @@ public class PersonalAcct extends Account
 		super(bal, fName, lName, s, c, p, pCode);
 	}
 	
-	void test(double amt)
+	void test(double amt, boolean choice)
 	{
 		double balance;
 		
 		balance = super.getBalance();
 		
-	 	if (amt <= balance)
-	 	{
-	 		super.withdrawel(amt);
-	 		
-	 		if (super.getBalance() < 100)
-	 		{
-	 			super.withdrawel(2);
-	 			System.out.println("Your Account Has Gone Below the Minimum, and $2 Have Been Charged.");
-	 		}
-	 		
-	 		System.out.println("Your Balance is Now: " + money.format(super.getBalance()));
-	 	}
+		if (choice == false)
+		{
+			if (amt <= balance)
+		 	{
+		 		super.withdrawel(amt);
+		 	}
+		 	
+		 	else
+		 	{
+		 		System.out.println("Not enough money in account.");
+		 	}
+		}
+		
+		else
+		{
+			super.deposit(amt);
+		}
 	 	
-	 	else
-	 	{
-	 		System.out.println("Not enough money in account.");
-	 	}
+	 	if (super.getBalance() < 100)
+ 		{
+ 			super.withdrawel(2);
+ 			System.out.println("Your Account Has Gone Below the Minimum, and $2 Have Been Charged.");
+ 		}
+	 	
+	 	System.out.println("Your Balance is Now: " + money.format(super.getBalance()));
 	}
 }

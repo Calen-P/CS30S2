@@ -14,7 +14,6 @@ public class Bank {
 		Scanner input = new Scanner(System.in);
 		
 		String choice, street, city, province, postalCode;
-		String ID;
 		int select;
 		double amount;
 		
@@ -45,7 +44,7 @@ public class Bank {
 				{
 					System.out.println("Enter Amount You Would Like to Withdraw: ");
 					amount = input.nextDouble();
-					acct.withdrawal(amount);
+					acct.test(amount);
 				}
 				
 				else if (choice.equalsIgnoreCase("D"))
@@ -53,6 +52,7 @@ public class Bank {
 					System.out.println("Enter Amount You Would Like to Deposit: ");
 					amount = input.nextDouble();
 					acct.deposit(amount);
+					System.out.println("Your Balance is Now: " + money.format(acct.getBalance()));
 				}
 				
 				else if (choice.equalsIgnoreCase("C"))

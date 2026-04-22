@@ -6,7 +6,7 @@ package Account;
  
 import java.text.NumberFormat;
 
-public class Account {
+public abstract class Account {
 	private double balance;
 	private Customer cust;
 	private String acctID;
@@ -72,15 +72,12 @@ public class Account {
 	 * pre: none
 	 * post: The balance has been decreased by the amount withdrawn.
 	 */
-	public void withdrawal(double amt) {
-	 	if (amt <= balance) {
-	 		balance -= amt;
-	 	} else {
-	 		System.out.println("Not enough money in account.");
-	 	}
+	public void withdrawel(double amt) {
+	 	balance -= amt;
 	}
-
-
+	
+	abstract void test(double amt);
+	
 
 	//Create a changeAddress() method that calls the cust object from above in order to change
 	//Street, city, province, postalCode

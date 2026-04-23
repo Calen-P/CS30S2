@@ -8,7 +8,7 @@ public class Bank {
 	public static void main(String[] args)
 	{
 		PersonalAcct acct1 = new PersonalAcct(100, "Calen", "Plana", "1", "Calgary", "Alberta", "A1B 2C3");
-		BusinessAcct acct2 = new BusinessAcct(500, "Calen", "Plana", "1", "Calgary", "Alberta", "A1B 2C3");
+		BusinessAcct acct2 = new BusinessAcct(500, "Calen", "Plana", "6", "Edmonton", "Alberta", "E4F 5G6");
 		
 		NumberFormat money = NumberFormat.getCurrencyInstance();
 		Scanner input = new Scanner(System.in);
@@ -44,14 +44,15 @@ public class Bank {
 				{
 					System.out.println("Enter Amount You Would Like to Withdraw: ");
 					amount = input.nextDouble();
-					acct.test(amount, false);
+					acct.test(amount);
 				}
 				
 				else if (choice.equalsIgnoreCase("D"))
 				{
 					System.out.println("Enter Amount You Would Like to Deposit: ");
 					amount = input.nextDouble();
-					acct.test(amount, true);
+					acct.deposit(amount);
+					System.out.println("Your Balance is Now: " + money.format(acct.getBalance()));
 				}
 				
 				else if (choice.equalsIgnoreCase("C"))

@@ -11,9 +11,4 @@ public class Truck extends Vehicle
 	{
 		return("Honk Honk!");
 	}
-	
-	public int capacity()
-	{
-		return(5);
-	}
 }

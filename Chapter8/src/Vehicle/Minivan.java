@@ -11,9 +11,4 @@ public class Minivan extends Vehicle
 	{
 		return("Wah Wah!");
 	}
-	
-	public int capacity()
-	{
-		return(8);
-	}
 }

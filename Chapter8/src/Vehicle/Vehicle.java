@@ -33,12 +33,17 @@ public abstract class Vehicle
 	
 	public String getFuelEco()
 	{
-		return("The " + name + " Has a Fuel Economy of " + fuelEconomyCity + " in a City and " + fuelEconomyHwy + " on a Highway");
+		return("The " + name + " Has a Fuel Economy of " + fuelEconomyCity + " MPG in a City and " + fuelEconomyHwy + " MPG on a Highway");
 	}
 	
 	public String getSeatCap()
 	{
 		return("The Seating Capacity of the " + name + " is " + seatingCapacity);
+	}
+	
+	public String getCarVol()
+	{
+		return("The Cargo Volume Ranges From " + cargoVolume + " Cubic Feet");
 	}
 	
 	public String toString()

@@ -11,33 +11,25 @@ public class BusinessAcct extends Account
 		super(bal, fName, lName, s, c, p, pCode);
 	}
 	
-	void test(double amt, boolean choice)
+	void test(double amt)
 	{
 		double balance;
 		
 		balance = super.getBalance();
 		
-		if (choice == false)
-		{
-			if (amt <= balance)
-		 	{
-		 		super.withdrawel(amt);
-		 	}
+		if (amt <= balance)
+	 	{
+	 		super.withdrawel(amt);
+	 	}
 		 	
-		 	else
-		 	{
-		 		System.out.println("Not enough money in account.");
-		 	}
-		}
-		
-		else
-		{
-			super.deposit(amt);
-		}
+	 	else
+	 	{
+	 		System.out.println("Not enough money in account.");
+	 	}
 	 	
 	 	if (super.getBalance() < 500)
  		{
- 			super.withdrawel(10);
+ 			super.withdrawel(2);
  			System.out.println("Your Account Has Gone Below the Minimum, and $10 Have Been Charged.");
  		}
 	 	

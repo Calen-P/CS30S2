@@ -76,7 +76,7 @@ public abstract class Account {
 	 	balance -= amt;
 	}
 	
-	abstract void test(double amt, boolean choice);
+	abstract void test(double amt);
 	
 
 	//Create a changeAddress() method that calls the cust object from above in order to change

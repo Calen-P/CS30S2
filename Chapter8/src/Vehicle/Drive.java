@@ -19,7 +19,7 @@ public class Drive {
 		
 		do
 		{
-			System.out.println("(D)rive \\ (N)ame and Price \\ (C)apacity \\ (F)uel Economy \\ (Q)uit?");
+			System.out.println("(D)rive \\ (N)ame and Price \\ (S)eat Capacity \\ (F)uel Economy \\ (C)argo Volume \\ (Q)uit?");
 			System.out.println("Enter Your Choice: ");
 			choice = input.next();
 			
@@ -67,14 +67,19 @@ public class Drive {
 					System.out.println(v.toString());
 				}
 				
-				else if (choice.equalsIgnoreCase("C"))
+				else if (choice.equalsIgnoreCase("S"))
 				{
 					System.out.println(v.getSeatCap());
 				}
 				
-				else if (choice.equalsIgnoreCase("F"));
+				else if (choice.equalsIgnoreCase("F"))
 				{
 					System.out.println(v.getFuelEco());
+				}
+				
+				else if (choice.equalsIgnoreCase("C"))
+				{
+					System.out.println(v.getCarVol());		
 				}
 			}
 		} while(!choice.equalsIgnoreCase("Q"));
